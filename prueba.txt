@@ -1,0 +1,23 @@
+// Pregunta 1
+Supuestos:
+    La tabla Price tiene una clave foranea para cada Product en este caso seria el valor de Ean
+    Se asume que active es de tipo Booleano, o que es un Int con valor {0,1}
+    Se asume que dentro de Market tambien existe un Sku como clave foranea para relacionar los diferentes Product
+La query SQL quedaría:
+
+Select Product.name, Product.Sku, Product.Ean, Market.Name, pr.Minprice AS MinActivePrice
+    From Product 
+    JOIN Market on Product.Sku = Market.Sku
+    JOIN (Select foreign_key, MIN(normal_price) AS Minprice, MAX(create_date) 
+        From Price
+        Where active = 1
+        GROUP BY foreing_key
+    )
+    AS pr on Product.Ean = pr.foreign_key
+    GROUP BY Product.Ean, Product.Sku;
+
+// Pregunta 2 
+
+Dado el modelo asociado, se podria automatizar un proceso que nos entregue el precio inicial de un producto
+con su fecha de creacion en los diferentes mercados, ya que esto nos daria un indicativo de como se comporta
+el producto en su salida para los diferentes mercados
