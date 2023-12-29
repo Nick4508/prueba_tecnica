@@ -9,13 +9,16 @@ function Filtro() {
     {
       '123456': {
         product_name: 'Pepsi',
+        datos_query : ["data"],
         price_range: 30,
         different_market: 15,
+        
       },
     },
     {
       '234567': {
         product_name: 'Coca-Cola',
+        datos_query : ["data"],
         price_range: 40,
         different_market: 25,
       }
@@ -23,6 +26,7 @@ function Filtro() {
     {
       '345678': {
         product_name: '7 Up',
+        datos_query : ["data"],
         price_range: 50,
         different_market: 5,
       }
@@ -30,6 +34,7 @@ function Filtro() {
     {
       '456789': {
         product_name: 'Fanta',
+        datos_query : ["data"],
         price_range: 20,
         different_market: 35,
       },
